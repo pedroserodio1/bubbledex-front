@@ -42,11 +42,12 @@ body{
 }
 
 .btn-container{
-    height: 40px;
+    width: 90vw;
+    height: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    gap: 90%
+    gap: 84vw;
     
 }
 

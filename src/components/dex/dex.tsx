@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import api from '../../api/api';
 import './dex.css'
+import { MoonLoader } from 'react-spinners'
 
 function Dex() {
 
@@ -29,7 +30,7 @@ function Dex() {
                 {carregado? 
                     <img className="picture" src={person[index].picture} alt={`Foto do ${person[index].name}`} title={`Foto do ${person[index].name}`}/> 
                     : 
-                    <p>Carregando...</p>}
+                    <MoonLoader />}
             </div>
             <div className="infos">
                 <div className="person">
@@ -44,7 +45,7 @@ function Dex() {
                             <p><strong>Descrição: </strong>{person[index].description}</p>
 
                         </> 
-                        : <p>Carregando...</p>}
+                        : <MoonLoader />}
                 </div>
                 <div className="hability">
                     <h2>Habilidade</h2>
@@ -59,7 +60,7 @@ function Dex() {
                             )
                         })}
                         </>
-                        : <p>Carregando...</p>}
+                        : <MoonLoader />}
                 </div>
             </div>
         </div>
