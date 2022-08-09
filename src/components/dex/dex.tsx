@@ -28,13 +28,15 @@ function Dex() {
         <div className="main">
             <div className="foto">
                 {carregado? 
-                    <img className="picture" src={person[index].picture} alt={`Foto do ${person[index].name}`} title={`Foto do ${person[index].name}`}/> 
+                    <>
+                        <img className="picture" src={person[index].picture} alt={`Foto do ${person[index].name}`} title={`Foto do ${person[index].name}`}/> 
+                    </>
                     : 
                     <MoonLoader />}
             </div>
             <div className="infos">
                 <div className="person">
-                    <h2>Pessoa</h2>
+                    <h2 className="title">Pessoa</h2>
                     {carregado? 
                         <>
                             <p><strong>Nome: </strong> {person[index].name}</p>
@@ -48,12 +50,12 @@ function Dex() {
                         : <MoonLoader />}
                 </div>
                 <div className="hability">
-                    <h2>Habilidade</h2>
+                    <h2 className="title hability-title">Habilidade</h2>
                     {carregado? 
                         <>
                         {person[index].Hability_person.map((value: any) => {
                             return (
-                                <p>
+                                <p className="hability-box">
                                     <strong>Nome da habilidade: </strong>{value.Hability.name} <br/>
                                     <strong>Descrição: </strong>{value.Hability.description}
                                 </p>
