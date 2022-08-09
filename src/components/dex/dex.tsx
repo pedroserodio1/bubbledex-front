@@ -22,8 +22,8 @@ function Dex() {
     return (
         <>
         <div className="btn-container">
-            <button className='btn-left' onClick={() => setIndex(index-1)} disabled={person[index -1]? false: true}>{person[index -1]? `← ${person[index-1].name}`: ''}</button>
-            <button className='btn-right' onClick={() => setIndex(index+1)} disabled={person[index + 1]? false: true}>{person[index + 1]? `${person[index+1].name} →`: ''}</button>
+            <button className='btn-left' onClick={() => setIndex(index-1)} disabled={person[index -1]? false: true}>{person[index -1]? `← #${index} ${person[index-1].name}`: ''}</button>
+            <button className='btn-right' onClick={() => setIndex(index+1)} disabled={person[index + 1]? false: true}>{person[index + 1]? `${person[index+1].name} #${index+2} →`: ''}</button>
         </div>
         <div className="main">
             <div className="foto">

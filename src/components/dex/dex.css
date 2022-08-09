@@ -101,6 +101,7 @@ button:hover:not([disabled]){
     }
 }
 
+/* Making the main div a column when the screen is less than 1700px. */
 @media (max-width: 1700px){
     .main{
         width: 90vw;
