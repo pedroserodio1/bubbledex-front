@@ -8,18 +8,37 @@ function Dex() {
     const [person, setPerson] = useState<any[]>([])
     const [carregado, setCarregado] = useState(false)
     const [index, setIndex] = useState(0)
+    const [classLendario, setClassLendario] = useState('main')
+    const lendario = ['Raiksan', 'caiow²', 'yAnthony']
 
     useEffect(() => {
 
         api.post('/person/listar').then(result => {
-            console.log(result)
             setPerson(result.data)
             setCarregado(true)
         }).catch(err => console.error(err));
 
+
     }, []);
 
+    useEffect(() => {
+
+        console.log(person)
+
+        if(carregado){
+            if(lendario.includes(person[index].name)){
+                setClassLendario('picture-lendario')
+            }else{
+                setClassLendario('picture')
+            }
+        }
+
+    }, [index, carregado]);
+
+    
+
     return (
+        
         <>
         <div className="btn-container">
             <button className='btn-left' onClick={() => setIndex(index-1)} disabled={person[index -1]? false: true}>{person[index -1]? `← #${index} ${person[index-1].name}`: ''}</button>
@@ -29,7 +48,7 @@ function Dex() {
             <div className="foto">
                 {carregado? 
                     <>
-                        <img className="picture" src={person[index].picture} alt={`Foto do ${person[index].name}`} title={`Foto do ${person[index].name}`}/> 
+                        <img className={classLendario} src={person[index].picture} alt={`Foto do ${person[index].name}`} title={`Foto do ${person[index].name}`}/> 
                     </>
                     : 
                     <MoonLoader />}
